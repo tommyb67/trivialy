@@ -33,7 +33,13 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+# add the pry gem
+gem 'pry-rails', group: [:development, :test]
+
+# add the unirest gem to make queries to the API
+gem 'unirest'
 
 # Use unicorn as the app server
 # gem 'unicorn'
