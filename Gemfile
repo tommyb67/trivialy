@@ -41,6 +41,9 @@ gem 'pry-rails', group: [:development, :test]
 # add the unirest gem to make queries to the API
 gem 'unirest'
 
+# add figaro to keep my api key safe
+gem "figaro"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
