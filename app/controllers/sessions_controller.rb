@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    # I will need to define this path
+    redirect_to(games_path)
+  end
 end

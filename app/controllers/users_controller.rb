@@ -31,15 +31,16 @@ private
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
-  def logged_in?
-    session[:user_id].present?
-  end
+## Moved to the SessionsHelper
+  # def logged_in?
+  #   session[:user_id].present?
+  # end
 
-  def authenticated!
-    unless logged_in?
-      redirect_to new_session_path
-    end
-  end
+  # def authenticated!
+  #   unless logged_in?
+  #     redirect_to new_session_path
+  #   end
+  # end
 
   def set_user
     @user = User.find(params[:id])
