@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
 
+  before_action :current_user, only: [:edit]
   # def new
   # end
 
@@ -14,55 +15,41 @@ class GamesController < ApplicationController
 
     #binding.pry
 
-    redirect_to user_game_path( @user, @game )
+    redirect_to edit_user_game_path( @user, @game )
   end
 
-  def show
+  def update
+
     @game = Game.find(params[:id])
-
-    # a game is 5 questions long
-    if @game.questions.count <= 5
-
-      # We are grabbing 5 random questions from the db
-      ids = Question.pluck(:id)
-      @question = Question.find(ids.sample)
-
-      # ensure that this question isn't a repeat
-      while @game.questions.include? @question
-        @question = Question.find(ids.sample)
-      end
-
-      ## check that the answer is correct and increment the score
-      score = 0
-      if @your_answer_is == @question.answer
-          @score = score + 10
-        else
-          @score = score
-      end
-
-      # I think I need a reload in here to update the score!!!
+    #binding.pry
 
 
-      # push these questions into this instance of game
-      @game.questions << @question
-
-      # push the score of the game into the instance of this game
-      @game.score << @score
-
-
-      #binding.pry
-
-      render :show
-    else
-      render text: "GAME OVER"
-      #render :over
+    if Question.find(params[:question_id]).answer == params[:your_answer_is]
+      # Increment the score
+      @game.score += 10
     end
+    #binding.pry
+    # Move on to the next question
+
+    @game.save
+
+    if @question = @game.next_question
+      render :edit
+    else
+      render text: "GAME OVER!"
+    end
+
   end
 
-  private
+  def edit
+    ids = Question.pluck(:id)
+    @question = Question.find(ids.sample)
 
-  def get_question( game_instance )
-
+    @game = Game.find(params[:id])
   end
+
+  # def show
+  #   @game = Game.find(params[:id])
+  # end
 
 end

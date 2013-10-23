@@ -1,9 +1,10 @@
 Trivialy::Application.routes.draw do
   resources :users do
-    resources :games, only: [:show, :create] do
-      resources :questions, only: [:show]
+    resources :games do
+      resources :questions do
     end
   end
+end
 
   #/users/1
   # START A NEW GAME
