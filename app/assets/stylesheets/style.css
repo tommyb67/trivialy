@@ -1,0 +1,46 @@
+body{
+  font-family: Georgia, Times, serif;
+  background-color: #EEE5DE;
+  padding: 5px;
+}
+
+.session_start{
+  text-align: center;
+  padding: 5px;
+  vertical-align: center;
+  margin: 5px;
+}
+
+h1{
+  text-align: center;
+  background-color: #FFF5EE;
+  padding: 5px;
+}
+
+.question{
+  width: 90%;
+  margin-bottom: 5px;
+  background-color: #FFF5EE;
+  padding: 5px;
+  border: 5px;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.answer{
+  width: 90%;
+  margin-top: 5px;
+  background-color: #FFF5EE;
+  padding: 5px;
+  border: 5px;
+  border-color: black;
+  border-radius: 20px;
+
+}
+
+.medium{
+  display: block;
+  margin: 0px auto;
+  height: 95%;
+  width: 95%;
+}

@@ -1,5 +1,6 @@
-<h1>Please sign in</h1>
+<h1>Please sign in to play Commuter Trivialy!</h1>
 
+<div class="session_start">
 <%= form_tag session_path, :method => :post do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
@@ -9,3 +10,8 @@
 
   <%= submit_tag "Login" %>
 <% end %>
+</div>
+
+
+<img src="http://www.michellesarabia.com/wp-content/uploads/2013/07/traintracks.jpg"
+class="medium" />

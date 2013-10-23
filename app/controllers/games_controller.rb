@@ -36,7 +36,7 @@ class GamesController < ApplicationController
     if @question = @game.next_question
       render :edit
     else
-      render text: "GAME OVER!"
+      render :over
     end
 
   end

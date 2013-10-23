@@ -1,19 +1,24 @@
-<h1> Your Playing Trivialy!! </h1>
+<h1> Commuter Trivialy!</h1>
 
 
 <h3>Category: <%= @question.category.capitalize %></h3>
-<p>Question: <%= @question.question %><p>
-<p>Score: <%= @game.score %></p>
-
-<h4>Questions Answered:</h4>
+<div class="question">
+  <p>Question: <%= @question.question %><p>
+</div>
 
 <%= form_tag user_game_path(current_user, @game), :action => :update, :method => :put do %>
 <%= hidden_field_tag :question_id, @question.id %>
-<%= label_tag :your_answer_is  %>
-<%= text_field_tag :your_answer_is %>
+<div class="answer">
+  <%= label_tag :your_answer_is  %>
+  <%= text_field_tag :your_answer_is %>
+</div>
+<div class="button">
 <%= submit_tag "Check Answer" %>
+</div>
 <% end %>
 
+<p>Score: <%= @game.score %></p>
 
-<p>Correct Answer: <%= @question.answer %></p>
+
+
 

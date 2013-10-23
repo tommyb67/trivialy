@@ -1,0 +1,7 @@
+<h1>Game Over</h1>
+
+<h2>Your Final Score is: <%= @game.score %></h2>
+
+<% if logged_in? %>
+  <%= link_to "Play Again", user_games_path(current_user), :method => :post %>
+<% end %>
