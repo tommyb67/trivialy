@@ -1,4 +1,7 @@
 Trivialy::Application.routes.draw do
+
+  root 'welcome#index'
+
   resources :users do
     resources :games do
       resources :questions do
@@ -19,6 +22,9 @@ end
 
 
   resource :session, only: [:new, :create, :destroy]
+
+
+
 end
 
 ###################### EXAMPLE #####################

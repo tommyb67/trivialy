@@ -1,8 +1,13 @@
 <h1>Welcome:  <%= @user.email %></h1>
 
 
-<%= link_to "Edit User", edit_user_path(@user) %><br>
+<div class="button">
+  <%= button_to "Edit User", edit_user_path(@user) %><br>
+</div class="button">
 
 <% if logged_in? %>
-  <%= link_to "Play Trivia", user_games_path(@user), :method => :post %>
+  <div class="button">
+    <%= button_to "Play Trivia", user_games_path(@user), :method => :post %>
+    <%= button_to "My Game History", user_games_path(@user), :method => :post %>
+  </div>
 <% end %>

@@ -44,3 +44,10 @@ h1{
   height: 95%;
   width: 95%;
 }
+
+.button{
+    height: 10px;
+    width: 50px;
+    margin: 20px;
+
+}

@@ -1,6 +1,6 @@
 Question.destroy_all
 
-Question.create(category: 'sports', answer: 'LONG JUMP', difficulty: 1, question: 'Jesse Owen''s world record in which sporting event stood from 1935 until 1960?')
+Question.create(category: 'sports', answer: 'LONG JUMP', difficulty: 1, question: 'Jesse Owen''s world record in which sporting event stood from 1935 until 1960?');
 Question.create(category: 'sports', answer: 'CHICAGO WHITE SOX', difficulty: 1, question: 'When Michael Jordan retired from the Chicago Bulls for the first time in 1994, he signed a minor-league contract with what major league baseball team?')
 Question.create(category: 'sports', answer: 'BUSTER DOUGLAS', difficulty: 1, question: 'Is Mike Tyson unbeatable? On February 10, 1990, in the heavyweight championship fight in Tokyo, this boxer knocked out Mike Tyson in the tenth round, the only fighter ever to defeat Tyson for the heavyweight boxing crown. Who was he?')
 Question.create(category: 'sports', answer: 'STEEPLECHASE', difficulty: 1, question: 'This Olympic event is a 3,000 meter footrace around a track.  Runners must jump four hurdles and a water obstacle.  What is this event called?')
