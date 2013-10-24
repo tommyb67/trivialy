@@ -24,11 +24,11 @@ class GamesController < ApplicationController
     #binding.pry
 
 
-    if Question.find(params[:question_id]).answer == params[:your_answer_is]
+    if Question.find(params[:question_id]).correct_answer?(params[:your_answer_is])
       # Increment the score
       @game.score += 10
     end
-    #binding.pry
+
     # Move on to the next question
 
     @game.save

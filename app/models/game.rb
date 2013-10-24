@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
   def next_question
 
-    if questions.count <= 5
+    if questions.count < 5
       ids = Question.pluck(:id)
       question = Question.find(ids.sample)
 
