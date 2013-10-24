@@ -11,15 +11,21 @@ Question.create(category: 'animal', answer: '3 months', difficulty: 1, question:
 Question.create(category: 'animal', answer: 'Hands', difficulty: 1, question: 'What unit of measurement is used to measure a horse''s height in?')
 Question.create(category: 'animal', answer: 'Blue Whale', difficulty: 1, question: 'The largest mammal that ever lived weighs more than 100 tons. What kind of animal is this?')
 
+require 'Unirest'
 
+questions = []
 
+res = Unirest::get("https://privnio-trivia.p.mashape.com/exec?category=entertainment&v=1&method=getQuestions",
+  {
+    "X-Mashape-Authorization" => ENV["MASHAPE_KEY"]
+  }
+)
 
+single_answer_ques = (res.body["result"].map do |q|
+  q["answer"] = q["answer"].to_s
+  q
+end.select do |q|
+  !q["answer"].match /a\./
+end)
 
-
-
-
-
-
-
-
-
+binding.pry
