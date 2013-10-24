@@ -19,12 +19,11 @@ class GamesController < ApplicationController
   end
 
   def update
-
+    answered_question = Question.find(params[:question_id])
     @game = Game.find(params[:id])
-    #binding.pry
+    @game.questions << answered_question
 
-
-    if Question.find(params[:question_id]).correct_answer?(params[:your_answer_is])
+    if answered_question.correct_answer?(params[:your_answer_is])
       # Increment the score
       @game.score += 10
     end
@@ -42,10 +41,8 @@ class GamesController < ApplicationController
   end
 
   def edit
-    ids = Question.pluck(:id)
-    @question = Question.find(ids.sample)
-
     @game = Game.find(params[:id])
+    @question = @game.next_question
   end
 
   # def show

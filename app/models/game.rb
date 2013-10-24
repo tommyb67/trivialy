@@ -3,7 +3,9 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :questions
 
   def next_question
-    if questions.count <= 4
+    if questions.none?
+      return Question.order("RANDOM()").first
+    elsif questions.count <= 4
       Question.where("id not in (?)", self.questions.pluck(:id)).order("RANDOM()").first
     else
       false
