@@ -13,19 +13,21 @@ Question.create(category: 'animal', answer: 'Blue Whale', difficulty: 1, questio
 
 require 'Unirest'
 
-questions = []
+10.times do
+  res = Unirest::get("https://privnio-trivia.p.mashape.com/exec?category=entertainment&v=1&method=getQuestions",
+    {
+      "X-Mashape-Authorization" => ENV["MASHAPE_KEY"]
+    }
+  )
 
-res = Unirest::get("https://privnio-trivia.p.mashape.com/exec?category=entertainment&v=1&method=getQuestions",
-  {
-    "X-Mashape-Authorization" => ENV["MASHAPE_KEY"]
-  }
-)
+  single_answer_ques = (res.body["result"].map do |q|
+    q["answer"] = q["answer"].to_s
+    q
+  end.select do |q|
+    !q["answer"].match /a\./
+  end)
 
-single_answer_ques = (res.body["result"].map do |q|
-  q["answer"] = q["answer"].to_s
-  q
-end.select do |q|
-  !q["answer"].match /a\./
-end)
-
-binding.pry
+  single_answer_ques.each do |ques|
+    Question.create(category: ques['category'], answer: ques['answer'], difficulty: ques['difficulty'], question: ques['question'])
+  end
+end
