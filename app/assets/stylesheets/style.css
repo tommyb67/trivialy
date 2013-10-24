@@ -1,7 +1,31 @@
-body{
+body {
   font-family: Georgia, Times, serif;
   background-color: #EEE5DE;
   padding: 5px;
+}
+
+table.center {
+  width: 400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+th, td {
+  padding: 7px 10px 10px 10px;
+  text-align: center;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 90%;
+  border-bottom: 2px solid #111111;
+  border-top: 1px solid #999;
+  text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #FFF5EE;
 }
 
 .session_start{
@@ -11,13 +35,13 @@ body{
   margin: 5px;
 }
 
-h1{
+h1 {
   text-align: center;
   background-color: #FFF5EE;
   padding: 5px;
 }
 
-.question{
+.question {
   width: 90%;
   margin-bottom: 5px;
   background-color: #FFF5EE;
@@ -27,7 +51,7 @@ h1{
   border-radius: 20px;
 }
 
-.answer{
+.answer {
   width: 90%;
   margin-top: 5px;
   background-color: #FFF5EE;
@@ -38,16 +62,15 @@ h1{
 
 }
 
-.medium{
+.medium {
   display: block;
   margin: 0px auto;
   height: 95%;
   width: 95%;
 }
 
-.button{
+.button {
     height: 10px;
     width: 50px;
     margin: 20px;
-
 }

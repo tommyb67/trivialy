@@ -12,6 +12,22 @@
 <% end %>
 </div>
 
+<table class="center">
+  <tr>
+    <th scope="col" colspan="3">High Scores!</th>
+  </tr>
+   <tr>
+      <th scope="col">User</th>
+      <th scope="col">Game #</th>
+      <th scope="col">Score</th>
+    </tr>
+  <% @game.each do |game| %>
+    <tr>
+      <td><%= game.user_id %></td>
+      <td><%= game.id %></td>
+      <td><%= game.score %></td>
+    </tr>
+  <% end %>
+</table>
 
-<img src="http://www.michellesarabia.com/wp-content/uploads/2013/07/traintracks.jpg"
-class="medium" />
+

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @game = Game.all.order("score DESC")
     render :new
   end
 
