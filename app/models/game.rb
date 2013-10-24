@@ -3,24 +3,10 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :questions
 
   def next_question
-
-    if questions.count < 5
-      ids = Question.pluck(:id)
-      question = Question.find(ids.sample)
-
-
-      # ensure that this question isn't a repeat
-      while self.questions.include? question
-        question = Question.find(ids.sample)
-      end
-
-
-      self.questions << question
-
-      return question
+    if questions.count <= 4
+      Question.where("id not in (?)", self.questions.pluck(:id)).order("RANDOM()").first
     else
-      return false
+      false
     end
-
   end
 end
