@@ -1,15 +1,17 @@
 <h1>Welcome:  <%= @user.email %></h1>
 
 
-<div class="button">
+<% if logged_in? %>
+  <div class="session_start">
+    <%= button_to "Play Trivia!", user_games_path(@user), :method => :post %>
+  </div>
+<% end %>
+
+<div class="session_start">
   <%= button_to "Edit User", edit_user_path(@user), :method => :get %><br>
 </div class="button">
 
-<% if logged_in? %>
-  <div class="button">
-    <%= button_to "Play Trivia", user_games_path(@user), :method => :post %>
-  </div>
-<% end %>
+
 
 <table class="center">
   <tr>
