@@ -3,7 +3,7 @@
 
 <% if logged_in? %>
   <div class="session_start">
-    <%= button_to "Play Trivia!", user_games_path(@user), :method => :post %>
+    <%= button_to "Play Trivia", user_games_path(@user), :method => :post %>
   </div>
 <% end %>
 

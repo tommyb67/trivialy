@@ -13,7 +13,7 @@ Question.create(category: 'animal', answer: 'Blue Whale', difficulty: 1, questio
 
 require 'Unirest'
 
-9.times do
+5.times do
   res = Unirest::get("https://privnio-trivia.p.mashape.com/exec?category=entertainment&v=1&method=getQuestions",
     {
       "X-Mashape-Authorization" => ENV["MASHAPE_KEY"]

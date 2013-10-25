@@ -25,7 +25,8 @@ class GamesController < ApplicationController
 
     if answered_question.correct_answer?(params[:your_answer_is])
       # Increment the score
-      @game.score += 10
+      s = rand(5..25)
+      @game.score += s
     end
 
     # Move on to the next question
@@ -35,6 +36,7 @@ class GamesController < ApplicationController
     if @question = @game.next_question
       render :edit
     else
+      #binding.pry
       render :over
     end
 

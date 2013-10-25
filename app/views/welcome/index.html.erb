@@ -1,13 +1,21 @@
 <h1>Welcome to Commuter Trivialy!</h1>
-
+  <ul>
+    Instructions:
+      <li>A game consits of 5 general knowledge questions</li>
+      <li>For each correct response you will be awarded a score between 5 and 25 pts</li>
+      <li>For questions with multi-part answers use this format: answer / answer / answer</li>
+      <li>The case of the response doesn't matter, but spelling does!</li>
+  </ul>
 
 <div class="session_start">
-  <%= button_to "Sign Up!", new_user_path(@user), :method => :get %>
-</div class="button">
+  <div class="button_box">
+    <%= button_to "Sign Up!", new_user_path(@user), :method => :get %>
+  </div>
 
-<div class="session_start">
-  <%= button_to "Sign In!", new_session_path(@user), :method => :get %>
-</div class="button">
+  <div class="button_box">
+    <%= button_to "Sign In!", new_session_path(@user), :method => :get %>
+  </div>
+</div>
 
 
 <img src="http://www.michellesarabia.com/wp-content/uploads/2013/07/traintracks.jpg"

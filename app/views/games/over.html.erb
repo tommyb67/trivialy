@@ -7,3 +7,14 @@
 <% if logged_in? %>
   <%= link_to "Play Again", user_games_path(current_user), :method => :post %>
 <% end %>
+
+<table class="center">
+  <tr>
+    <th scope="col">Correct Answers</th>
+  </tr>
+  <% @game.questions.each do |q| %>
+  <tr>
+    <td><%= q.answer %></td>
+  </tr>
+  <% end %>
+</table>
