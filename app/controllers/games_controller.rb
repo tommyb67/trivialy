@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 
     if answered_question.correct_answer?(params[:your_answer_is])
       # Increment the score
-      s = rand(5..25)
+      s = rand(5..50)
       @game.score += s
     end
 
