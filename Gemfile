@@ -37,6 +37,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # add the pry gem
 gem 'pry-rails', group: [:development, :test]
+gem 'better_errors', group: [:development]
+gem 'binding_of_caller', group: [:development]
 
 # add the unirest gem to make queries to the API
 gem 'unirest'

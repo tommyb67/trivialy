@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @game = Game.all.order("score DESC")
+    @user = User.all
     render :new
   end
 
